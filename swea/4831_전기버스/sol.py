@@ -54,3 +54,4 @@ for tc in range(1, T+1):
                 now = N # while문을 끝내기 위한 강제 종료코드
 
     print(f'#{tc} {count}')
+
