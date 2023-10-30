@@ -9,7 +9,7 @@ def solution(my_string):
         if not char.islower():
             answer.append(char.lower())
         else:
-            answer.append(char)
+            answer.append(char) # answer += char
 
     answer = ''.join(sorted(answer))
     return answer

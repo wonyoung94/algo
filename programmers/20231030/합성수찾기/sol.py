@@ -42,4 +42,3 @@ print(solution(15)) #8
 #                 output += 1
 #                 break
 #     return output
-
