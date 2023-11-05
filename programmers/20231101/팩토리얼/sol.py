@@ -18,6 +18,7 @@ print(solution(3628800)) #10
 print(solution(7)) #3
 
 # 나눗셈으로 접근, 1로나누고, 2로나누고, 3으로 나누고....n으로 나눠서 1이되면 그 값을 출력
+# 민정이가 이렇게 했음!!!
 # def solution(n):
 #     divider=0
 #     while 1:

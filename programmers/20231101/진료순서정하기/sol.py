@@ -9,7 +9,7 @@ def solution(emergency):
     # 누구 맘대로 진료 순서를 정해 임마....
     # 요즘 세상에 이러면 큰일나...
 
-    # 정렬한 변수의 인덱스값+1을 매칭?
+    # 정렬한 변수의 인덱스값+1을 매칭하믄 대겠네!
     answer = []
     s_emr = sorted(emergency, reverse=True)
 
