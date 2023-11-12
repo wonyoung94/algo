@@ -9,16 +9,15 @@
 from collections import deque
 
 def solution(numbers, k):
-    n = len(numbers)
-    answer = []
+    n = len(numbers) 
+    answer = [] 
 
     # 일단 deque를 써서 원형 큐를 만들어줍니다....
     circular_queue = deque(numbers)
     for i in range(k):
-        # 두칸씩 미뤄줍시다...
+        # 두칸씩 미뤄줍시다... ( . . . 1 2 3 4 1 2 3 4 1 2 3 4 . . . )
         circular_queue.rotate(-2)
-        # Append the leftmost element to the answer
-        answer.append(circular_queue[0])
+        answer.append(circular_queue[0]) # 3 1 3 1 3 1 3 1
 
     return answer[k-2]
 
@@ -39,3 +38,30 @@ print(solution([1, 2, 3], 3))  # [3, 2, 1]
 #     array.rotate(-(k-1)*2)
 
 #     return array[0]
+
+# 민정이 답
+# import math
+
+# def solution(numbers,k):
+#     n= int(math.ceil((2*k)/len(numbers)))
+#     answer = []
+
+#     for _ in range(n):    
+#         for i in numbers:
+#             answer.append(i)  # [1 2 3 4 5 6 1 2 3 4 5 6]  
+    
+#     return answer[k*2-2]    
+
+
+# print(solution([1, 2, 3, 4, 5, 6],5))
+
+
+# 3 : 인덱스 0, 1번쨰로 받은 사람, 2번째로 던질 사람
+# 1 : 인덱스 1, 2번쨰로 받은 사람, 3번쨰로 던질 사람
+# 3 : 인덱스 2, 3번쨰로 받은 사람, 4번쨰로 던질 사람
+# 1 : 인덱스 3, 4번쨰로 받은 사람, 5번쨰로 던질 사람
+# 3 : 인덱스 4, 5번쨰로 받은 사람, 6번쨰로 던질 사람
+# 1 : 인덱스 5, 6번쨰로 받은 사람, 7번쨰로 던질 사람
+# 3 : 인덱스 6, 7번쨰로 받은 사람, 8번쨰로 던질 사람
+# 1 : 인덱스 7, 8번쨰로 받은 사람, 9번쨰로 던질 사람
+# 3 : 인덱스 k-2 , k-1 번쨰로 받은 사람, k번쨰로 던질 사람
