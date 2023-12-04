@@ -20,10 +20,38 @@
 
 def solution(id_pw, db):
     answer = ''
+
+    if id_pw in db:
+        answer = 'login'
+    elif id_pw[0] in [row[0] for row in db] or id_pw[1] not in [row[1] for row in db]: 
+        # and를 or 로 바꾼 이유 : db[1]의 ID와 db[2] PW 가 같을 경우를 제외하기 위해서
+        answer = 'wrong pw'
+    elif id_pw not in db:
+        answer = 'fail'
+
     return answer
-
-
 
 print(solution(["meosseugi", "1234"], [["rardss", "123"], ["yyoom", "1234"], ["meosseugi", "1234"]])) #"login"
 print(solution(["programmer01", "15789"], [["programmer02", "111111"], ["programmer00", "134"], ["programmer01", "1145"]])) #"wrong pw"
 print(solution(["rabbit04", "98761"], [["jaja11", "98761"], ["krong0313", "29440"], ["rabbit00", "111333"]])) #"fail"
+
+# 대입표현식 기능 사용 : ':=' 이렇게 생긴 연산자(python3.8부터 사용 가능) - 한국어로는 바다코끼리 연산자로불림(커여워...)
+# 바다코끼리 연산자의 목적 : 표현식에 이름을 부여하고 재사용 할 수 있게 하는 것
+# 더 궁금할 경우 참고
+# https://int-i.github.io/python/2020-05-29/python-walrus-operator/
+# def solution(id_pw, db):
+#     if db_pw := dict(db).get(id_pw[0]):
+#         return "login" if db_pw == id_pw[1] else "wrong pw"
+#     return "fail"
+
+# 이해하기 쉬운 코드라 긁어옴
+# def solution(id_pw, db):
+#     answer = ''
+#     a, b = id_pw[0], id_pw[1]
+#     for pk, pw in db:
+#         if pk == a and pw == b:
+#             return "login"
+#     for pk, pw in db:
+#         if pk == a:
+#             return "wrong pw"
+#     return "fail"

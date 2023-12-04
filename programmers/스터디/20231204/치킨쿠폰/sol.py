@@ -4,12 +4,21 @@
 # 시켜먹은 치킨의 수 chicken이 매개변수로 주어질 때 받을 수 있는 최대 서비스 치킨의 수를 return하도록 solution 함수를 완성해주세요.
 
 def solution(chicken):
-    answer = -1
-    return answer
+    answer = 0
+    coupon = chicken
+
+    while coupon >= 10:
+        eat = coupon//10 
+        answer += eat 
+        coupon = coupon%10 + eat 
+    return answer 
 
 
 print(solution(100)) #11
 print(solution(1081)) #120
+print(solution(1999)) #222
+
+
 
 # 1081마리를 주문하면 쿠폰이 1081장 발급되므로 서비스 치킨 108마리를 주문할 수 있습니다. 그리고 쿠폰이 1장 남습니다.
 # 108마리를 주문하면 쿠폰이 108장 발급되므로 서비스 치킨 10마리를 주문할 수 있습니다. 그리고 쿠폰이 8장 남습니다.
@@ -17,3 +26,12 @@ print(solution(1081)) #120
 # 1마리를 주문하면 쿠폰이 1장 발급됩니다.
 # 가지고 있는 쿠폰이 총 10장이므로 서비스 치킨 1마리를 추가로 주문할 수 있습니다.
 # 따라서 108 + 10 + 1 + 1 = 120 을 return합니다.
+
+#뭐야 이거..
+# def solution(chicken):
+#     return int(chicken*0.11111111111)
+
+# 나만 어렵지 또 
+# def solution(chicken):
+#     answer = (max(chicken,1)-1)//9
+#     return answer
