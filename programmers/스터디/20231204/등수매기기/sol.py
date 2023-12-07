@@ -18,7 +18,7 @@ def solution(scores):
         for student in scores:
             rv_score = sum(student) / len(student) # 전체 평균을 구해서 rv_score 작성
 
-            if rv_score > avg_score: # 학생 score가 평균보다 크면
+            if rv_score > avg_score: # 학생 score가 평균보다 작으면
                 rv_student += 1 # 등수를 하나 올려준다.(1등보다2등이 낮은 거임, 숫자가 올라갈수록 낮은 등수)
 
         answer.append(rv_student + 1)
