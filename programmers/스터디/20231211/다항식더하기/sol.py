@@ -6,59 +6,54 @@
 # 같은 식이라면 가장 짧은 수식을 return 합니다.
 
 def solution(polynomial):
-    answer = list(polynomial.replace(' ', ''))
-    #['3', 'x', '+', '7', '+', 'x']
-    # ['x', '+', 'x', '+', 'x']
+    # 문자 쪼개기
+    polynomial = polynomial.replace(' ', '')
+    polynomial = polynomial.split('+')
 
     # x 앞에 숫자가 없으면 1을 넣어줘라
     i = 0
-    while i < len(answer):
-        if answer[i] == 'x' and (i == 0 or not answer[i-1].isdigit()):
-            answer.insert(i, '1')
+    while i < len(polynomial):
+        if polynomial[i] == 'x' :
+            polynomial[i] = '1x'
         i += 1
-    # ['3', 'x', '+', '7', '+', '1', 'x']
-    # ['1', 'x', '+', '1', 'x', '+', '1', 'x']
 
     # 숫자 뒤에 x 가 있는 수를 x, 숫자 뒤에 x가 없는 수를 y로 할당
     x = []
     y = []
-    a = 0
-    while a < len(answer):
-        if answer[a] == 'x':
-            x.append(int(answer[a-1]))
-        else:
-            y.append(answer[a-1])
-        a += 1
     
-        # x에 숫자가 있는거만 추출
-        if x == []:
-            int_x = 0
+    for char in polynomial:
+        if char[-1] == 'x':
+            x.append(int(char[:-1]))
         else:
-            int_x = int(sum(x))
-        # y에 숫자가 있는거만 추출
-        y = [num for num in y if num.isdigit()]
-        if y == []:
-            int_y = 0
-        else:
-            int_y = int(sum(y))
-        # list comprehension으로 목록의 숫자 추출
-        # if로 분기처리 : 숫자가 없으면 0으로 처리 
+            y.append(int(char))
 
-    if int_x == 0 and int_y !=0:
-        answer = str(int_y)
-    elif int_x != 0 and int_y == 0:
-        answer = f"{int_x}x"
+    # ([3, 1], [7])
+    # ([1, 1, 1], [])
+    # ([7, 5], [4, 9])
+    # ([10], [])
+
+    # if로 분기처리 : 숫자가 없으면 0으로 처리 
+
+    if x == []:
+        return f'{sum(y)}'
+    if y == []:
+        if x == [1]:
+            return f'x'
+        else:
+            return f'{sum(x)}x'
     else:
-        answer = f"{int_x}x + {int_y}"
+        if x == [1]:
+            return f'x + {sum(y)}'
+        else:
+            return f'{sum(x)}x + {sum(y)}'
 
-    return answer
 
 print(solution("3x + 7 + x")) #"4x + 7"
 print(solution("x + x + x")) #"3x"
 print(solution("7x + 4 + 9 + 5x")) #"12x + 13"
 print(solution("10x")) #"10x"
 #########################################################
-# 스터디 하면서 이거 고쳐보기
+# 스터디 하면서 이거 고쳐보기 : 와 했다..... 한솔이 짱....
 
 # https://somjang.tistory.com/entry/Programmers-%EB%8B%A4%ED%95%AD%EC%8B%9D-%EB%8D%94%ED%95%98%EA%B8%B0-Python
 # 그냥 답지 일단 긁어옴
@@ -87,7 +82,19 @@ print(solution("10x")) #"10x"
 #     return " + ".join([f"{v if v > 1 else ''}{k}" if k != '' else f"{v}" for k, v in sorted(calc_dict.items(), key=lambda x: x[0], reverse=True)])
 
 
-
+# 프로그래머스의 외부 답안지
+# def solution(polynomial):
+#     number = 0
+#     x = 0
+#     for char in polynomial.split(" + "):
+#         if char.isnumeric():
+#             number += int(char)
+#         else:
+#             x += int(char[:-1] or "1")
+#     return " + ".join([
+#         *([f"{x if x > 1 else ''}x"] if x else []),
+#         *([f"{number}"] if number else []),
+#     ])
 
 
 
