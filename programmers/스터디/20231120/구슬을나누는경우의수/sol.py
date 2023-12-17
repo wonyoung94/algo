@@ -12,7 +12,7 @@ print(solution(3, 2)) # 3
 print(solution(5, 3)) # 10
 
 
-#combination 함수를 그냥 쓰면 됨...
+# combination 함수를 그냥 쓰면 됨...
 # import math
 # def solution(balls, share):
 #     return math.comb(balls, share)
@@ -27,3 +27,22 @@ print(solution(5, 3)) # 10
 #     for i in range(1, n + 1):
 #         result = result * i
 #     return result
+
+# 민정이 답
+# def solution(balls, share):
+#     n = 1
+#     m = 1
+#     nm = 1
+#     answer = 0 
+
+#     for i in range(1, balls+1):
+#         n *= i 
+#     for j in range(1, share+1):
+#         m *= j
+#     for k in range(1, balls-share +1):
+#         nm *= k
+
+#     answer = n / (nm * m)
+#     return int(answer)
+
+# print(solution(5,3))

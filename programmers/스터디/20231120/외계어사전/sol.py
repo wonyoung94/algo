@@ -7,14 +7,14 @@
 
 def solution(spell, dic):
     for word in dic:
-        find = []
+        cfind = []
         for char in spell:
             if word.find(char) != -1:
-                find.append(1)
+                cfind.append(1)
             else:
-                find.append(0)
+                cfind.append(0)
                 break
-        if 0 not in find:
+        if 0 not in cfind:
             return 1
     return 2
 
