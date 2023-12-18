@@ -21,3 +21,4 @@ print(solution(5, 5)) #[-1, 0, 1, 2, 3]
 #     for i in range(num):
 #         answer.append(newnum+i)
 #     return answer
+

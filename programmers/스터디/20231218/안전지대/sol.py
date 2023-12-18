@@ -5,16 +5,6 @@
 # 지뢰가 매설된 지역의 지도 board가 매개변수로 주어질 때, 
 # 안전한 지역의 칸 수를 return하도록 solution 함수를 완성해주세요.
 
-# def solution(board):
-#     answer = 0
-#     for i, j in range(board):
-#         if board == 1:
-#             board[[i-1]:[i+1]:[j-1]:[j+1]] += 1
-    
-#     answer = board.count(0)
-#     return answer
-
-
 def solution(board):
     answer = 0
     # board 크기 확인

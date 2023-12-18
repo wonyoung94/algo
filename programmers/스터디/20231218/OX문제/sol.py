@@ -40,7 +40,7 @@ def solution(quiz):
 #         result = int(result.strip())
         
 #         # 연산자가 없을 경우 그자리에서 break
-#         operator = None
+#         operator = None 
 #         for char in solve:
 #             if char in ('+', '-'):
 #                 operator = char
@@ -67,7 +67,7 @@ def solution(quiz):
 # eval 함수 안썼을때 eval 함수를 대체할 수 있는 새로운 함수를 구현 후 계산 : 
 # def calculate(equation):
 #     parts = equation.split()
-#     # 이 문제에 국한된 코드 : X, Y, Z 항이 3개로 주어졌으므로 그 이외의 상황은 제외 - 없어도 문제에 상관X
+#     이 문제에 국한된 코드 : X, Y, Z 항이 3개로 주어졌으므로 그 이외의 상황은 제외 - 없어도 문제에 상관X
 #     if len(parts) != 3:
 #         return None  
 #     num1, operator, num2 = map(str.strip, parts)
@@ -75,7 +75,7 @@ def solution(quiz):
 #         return int(num1) + int(num2)
 #     elif operator == '-':
 #         return int(num1) - int(num2)
-#     # 이 문제에 국한된 코드 : 연산자가 +, -가 아닌 상황은 제외 - 없어도 문제에 상관X
+#     이 문제에 국한된 코드 : 연산자가 +, -가 아닌 상황은 제외 - 없어도 문제에 상관X
 #     else:
 #         return None
 
